@@ -12,7 +12,7 @@ bbox = (-7552.0, 0.0, 0.0, 17312.0)
 
 # Desired minimum mesh size in domain
 freq = 7
-wl   = 2.41 # Ne # wl para ordem 2
+wl   = 4 # Ne # wl para ordem 2
 hmin = 1500/(wl*freq)
 write_velocity_model(fname,bbox=bbox,domain_pad=700, pad_style='edge')
 # write_velocity_model(fname)
@@ -38,6 +38,7 @@ if comm.rank == 0:
         "gm.msh",
         points / 1000,
         [("triangle", cells)],
+        # file_format="vtk"
         file_format="gmsh22",
         binary=False
     )
